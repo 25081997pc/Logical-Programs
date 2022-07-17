@@ -4,20 +4,30 @@
     {
         static void Main(string[] args)
         {
-            int n1 = 0, n2 = 1, n3, num;
+            int n, i, sum;
+            int min, max;
 
-            Console.WriteLine("Enter the number of Elements: ");
-            num = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Find the Perfect Number within a given number of range:\n");
 
-            Console.Write(n1 + " " + n2 + " ");
+            Console.WriteLine("Input the Starting range of number :");
+            min = Convert.ToInt32(Console.ReadLine());
 
-            for(int i = 2; i < num; i++)
+            Console.WriteLine("Input the Ending range of number :");
+            max = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("The perfect number within the given range :");
+            for(n = min; n <= max; n++)
             {
-                n3 = n1 + n2;
-                Console.Write(n3 + " ");
-
-                n1 = n2;
-                n2 = n3;
+                i = 1;
+                sum = 0;
+                while(i < n)
+                {
+                    if (n % i == 0)
+                        sum = sum + i;
+                    i++;
+                }
+                if(sum == n)
+                    Console.Write("{0} ", n);
             }
         }
     }
