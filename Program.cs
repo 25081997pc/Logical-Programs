@@ -4,30 +4,36 @@
     {
         static void Main(string[] args)
         {
-            int n, i, sum;
+            int n, i, flag = 0;
             int min, max;
 
-            Console.WriteLine("Find the Perfect Number within a given number of range:\n");
+            Console.WriteLine("Find the Prime number within a given range of number");
 
-            Console.WriteLine("Input the Starting range of number :");
+            Console.WriteLine("Input the starting number of range:");
             min = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Input the Ending range of number :");
+            Console.WriteLine("Input the Ending number of range:");
             max = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("The perfect number within the given range :");
-            for(n = min; n <= max; n++)
+            Console.WriteLine("Prime numbers within the given range");
+            if(min >= 2)
             {
-                i = 1;
-                sum = 0;
-                while(i < n)
+                for(n = min; n <= max; n++)
                 {
-                    if (n % i == 0)
-                        sum = sum + i;
-                    i++;
+                    i = 2;
+                    flag = 0;
+                    while(i <= n/2)
+                    {
+                        if (n % i == 0)
+                        {
+                            flag = 1;
+                            break;
+                        }
+                        i = i + 1; 
+                    }
+                    if(flag == 0)
+                        Console.Write("{0} ", n);
                 }
-                if(sum == n)
-                    Console.Write("{0} ", n);
             }
         }
     }
